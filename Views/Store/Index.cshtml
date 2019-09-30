@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="CreateNewStore"></div>
+<br />
+<div id="ListOfStore"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/react/dist/Stores.bundle.js"></script>
+}
