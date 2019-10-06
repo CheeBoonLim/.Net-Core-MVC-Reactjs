@@ -32,13 +32,31 @@ namespace OnboardingTask.Controllers
             return Json(sales);
         }
 
-        public ActionResult SaveNewCustomer(Customers customer)
+        public JsonResult FetchCustomer()
+        {
+            List<Customers> customers = db.Customers.ToList();
+            return Json(customers);
+        }
+
+        public JsonResult FetchProduct()
+        {
+            List<Products> products = db.Products.ToList();
+            return Json(products);
+        }
+
+        public JsonResult FetchStore()
+        {
+            List<Stores> stores = db.Stores.ToList();
+            return Json(stores);
+        }
+
+        public ActionResult SaveNewSale(Sales sale)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    db.Customers.Add(customer);
+                    db.Sales.Add(sale);
                     db.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -50,15 +68,17 @@ namespace OnboardingTask.Controllers
             }
         }
 
-        public ActionResult SaveEditedCustomer(Customers customer)
+        public ActionResult SaveEditedSale(Sales sale)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var editedCustomer = db.Customers.FirstOrDefault(x => x.Id == customer.Id);
-                    editedCustomer.Name = customer.Name;
-                    editedCustomer.Address = customer.Address;
+                    var editedSale = db.Sales.FirstOrDefault(x => x.Id == sale.Id);
+                    editedSale.CustomerId = sale.CustomerId;
+                    editedSale.ProductId = sale.ProductId;
+                    editedSale.StoreId = sale.StoreId;
+                    editedSale.DateSold = sale.DateSold;
                     db.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -70,14 +90,14 @@ namespace OnboardingTask.Controllers
             }
         }
 
-        public ActionResult DeleteCustomer(Customers customer)
+        public ActionResult DeleteSale(Sales sale)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var deleteCustomer = db.Customers.FirstOrDefault(x => x.Id == customer.Id);
-                    db.Customers.Remove(deleteCustomer);
+                    var deleteSale = db.Sales.FirstOrDefault(x => x.Id == sale.Id);
+                    db.Sales.Remove(deleteSale);
                     db.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }

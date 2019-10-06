@@ -12,10 +12,10 @@ namespace OnboardingTask.Models
         }
 
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name is required")]
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Address is required")]
+        [Required]
         [StringLength(100)]
         public string Address { get; set; }
 

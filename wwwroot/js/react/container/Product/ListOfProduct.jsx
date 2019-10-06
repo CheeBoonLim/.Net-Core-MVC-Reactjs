@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { Button } from "semantic-ui-react";
 import EditProduct from "./EditProduct";
 import DeleteProduct from "./DeleteProduct";
 
@@ -15,6 +16,7 @@ class ListOfProduct extends React.Component {
             url: "/Product/FetchProduct",
             success: function (data) {
                 me.setState({ products: data });
+                $("#LoadingStatus").remove();
             }
         })
     }
@@ -28,6 +30,9 @@ class ListOfProduct extends React.Component {
                         <th>Price</th>
                         <th>Action</th>
                         <th>Action</th>
+                    </tr>
+                    <tr id="LoadingStatus" style={{ color: "red" }}>
+                        <td>Loading....</td>
                     </tr>
                 </thead>
 

@@ -8,13 +8,13 @@ namespace OnboardingTask.Models
     public partial class Sales
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "ProductId is required")]
+        [Required]
         public int ProductId { get; set; }
-        [Required(ErrorMessage = "CustomerId is required")]
+        [Required]
         public int CustomerId { get; set; }
-        [Required(ErrorMessage = "StoreId is required")]
+        [Required]
         public int StoreId { get; set; }
-        [Required(ErrorMessage = "DateSold is required")]
+        [Required]
         public DateTime DateSold { get; set; }
 
         public virtual Customers Customer { get; set; }

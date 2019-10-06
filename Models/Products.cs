@@ -12,11 +12,11 @@ namespace OnboardingTask.Models
         }
 
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name is required")]
+        [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Price is required")]
-        [Range(0, Double.MaxValue, ErrorMessage = "Price must be larger than $0.00")]
+        [Required]
+        [Range(0, Double.MaxValue)]
         public decimal Price { get; set; }
 
         public virtual ICollection<Sales> Sales { get; set; }
