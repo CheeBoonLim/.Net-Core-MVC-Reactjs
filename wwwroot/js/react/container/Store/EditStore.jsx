@@ -16,8 +16,8 @@ class EditStore extends React.Component {
             Name: "",
             Address: "",
             errors: {
-                Name: " ",
-                Address: " "
+                Name: "",
+                Address: ""
             }
         };
         this.EditStore = this.EditStore.bind(this);
@@ -25,8 +25,15 @@ class EditStore extends React.Component {
         this.SaveStore = this.SaveStore.bind(this);
     }
 
-    EditStore(id) {
-        this.setState({ Id: id }, () => {
+    EditStore(store) {
+        let Id = this.state.Id;
+        let Name = this.state.Name;
+        let Address = this.state.Address;
+        Id = store.id;
+        Name = store.name;
+        Address = store.address;
+
+        this.setState({ Id, Name, Address }, () => {
             $("#StoreEditModal".concat(this.state.Id.toString())).modal();
         });
     }
@@ -57,6 +64,7 @@ class EditStore extends React.Component {
     SaveStore() {
         if (validateForm(this.state.errors)) {
             var data = {
+                Id: this.state.Id,
                 Name: this.state.Name,
                 Address: this.state.Address
             };
@@ -67,12 +75,6 @@ class EditStore extends React.Component {
             })
         } else {
             event.preventDefault();
-            const _errors = {};
-            let Name = this.state.Name;
-            let Address = this.state.Address;
-            if (Name.length == 0) _errors.Name = "Name is required";
-            if (Address.length == 0) _errors.Address = "Address is required";
-            this.setState({ errors: _errors });
         }
     }
 
@@ -82,7 +84,7 @@ class EditStore extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditStore(store.id)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
+                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditStore(store)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -95,14 +97,14 @@ class EditStore extends React.Component {
                                         <div className="form-group">
                                             <div className="col-md-10">
                                                 <label className="control-label"><b>NAME</b></label>
-                                                <input name="Name" className="form-control" onChange={this.handleChange} placeholder={store.name} />
+                                                <input name="Name" className="form-control" onChange={this.handleChange} defaultValue={store.name} />
                                                 <span className='text-danger'>{errors.Name}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
                                                 <label className="control-label"><b>ADDRESS</b></label>
-                                                <input name="Address" className="form-control" onChange={this.handleChange} placeholder={store.address} />
+                                                <input name="Address" className="form-control" onChange={this.handleChange} defaultValue={store.address} />
                                                 <span className='text-danger'>{errors.Address}</span>
                                             </div>
                                         </div>

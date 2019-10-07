@@ -16,8 +16,8 @@ class EditProduct extends React.Component {
             Name: "",
             Price: null,
             errors: {
-                Name: " ",
-                Price: " "
+                Name: "",
+                Price: ""
             }
         };
         this.EditProduct = this.EditProduct.bind(this);
@@ -25,8 +25,15 @@ class EditProduct extends React.Component {
         this.SaveProduct = this.SaveProduct.bind(this);
     }
 
-    EditProduct(id) {
-        this.setState({ Id: id }, () => {
+    EditProduct(product) {
+        let Id = this.state.Id;
+        let Name = this.state.Name;
+        let Price = this.state.Price;
+        Id = product.id;
+        Name = product.name;
+        Price = product.price;
+
+        this.setState({ Id, Name, Price }, () => {
             $("#ProductEditModal".concat(this.state.Id.toString())).modal();
         });
     }
@@ -71,12 +78,6 @@ class EditProduct extends React.Component {
             })
         } else {
             event.preventDefault();
-            const _errors = {};
-            let Name = this.state.Name;
-            let Price = this.state.Price;
-            if (Name.length <= 0) _errors.Name = "Name is required";
-            if (Price == null) _errors.Price = "Price is required";
-            this.setState({ errors: _errors });
         }
     }
 
@@ -86,7 +87,7 @@ class EditProduct extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditProduct(product.id)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
+                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditProduct(product)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -99,14 +100,14 @@ class EditProduct extends React.Component {
                                         <div className="form-group">
                                             <div className="col-md-10">
                                                 <label className="control-label"><b>NAME</b></label>
-                                                <input name="Name" className="form-control" onChange={this.handleChange} placeholder={product.name} />
+                                                <input name="Name" className="form-control" onChange={this.handleChange} defaultValue={product.name} />
                                                 <span className='text-danger'>{errors.Name}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
                                                 <label className="control-label"><b>PRICE</b></label>
-                                                <input name="Price" type="number" className="form-control" onChange={this.handleChange} placeholder={product.price} />
+                                                <input name="Price" type="number" className="form-control" onChange={this.handleChange} defaultValue={product.price} />
                                                 <span className='text-danger'>{errors.Price}</span>
                                             </div>
                                         </div>

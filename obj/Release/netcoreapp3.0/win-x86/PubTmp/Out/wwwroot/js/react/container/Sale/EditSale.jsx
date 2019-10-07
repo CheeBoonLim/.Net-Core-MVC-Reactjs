@@ -29,10 +29,10 @@ class EditSale extends React.Component {
             SelectedStoreId: 0,
             DateSold: "",
             errors: {
-                Customer: " ",
-                Product: " ",
-                Store: " ",
-                DateSold: " "
+                Customer: "",
+                Product: "",
+                Store: "",
+                DateSold: ""
             }
         };
         this.EditSale = this.EditSale.bind(this);
@@ -42,6 +42,11 @@ class EditSale extends React.Component {
 
     EditSale(sale) {
         var me = this;
+        let Id = this.state.Id;
+        let DateSold = this.state.DateSold;
+        Id = sale.id;
+        DateSold = sale.dateSold;
+
         $.ajax({
             type: "GET",
             url: "/Sale/FetchCustomer",
@@ -63,7 +68,8 @@ class EditSale extends React.Component {
                 me.setState({ Stores: data });
             }
         })
-        this.setState({ Id: sale.id }, () => {
+
+        this.setState({ Id, DateSold }, () => {
             $("#SaleEditModal".concat(this.state.Id.toString())).modal();
         });
         this.setState({
@@ -127,10 +133,6 @@ class EditSale extends React.Component {
             })
         } else {
             event.preventDefault();
-            const _errors = {};
-            let DateSold = this.state.DateSold;
-            if (DateSold.length == 0) _errors.DateSold = "Date sold is required";
-            this.setState({ errors: _errors });
         }
     }
 
@@ -153,7 +155,7 @@ class EditSale extends React.Component {
                                         <div className="form-group">
                                             <div className="col-md-5">
                                                 <label className="control-label"><b>DATE SOLD</b></label>
-                                                <input name="DateSold" className="form-control" onChange={this.handleChange} placeholder={sale.dateSold} />
+                                                <input name="DateSold" className="form-control" onChange={this.handleChange} defaultValue={sale.dateSold} />
                                                 <span className='text-danger'>{errors.DateSold}</span>
                                             </div>
                                         </div>
