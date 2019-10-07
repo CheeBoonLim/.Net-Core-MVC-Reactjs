@@ -24,24 +24,24 @@ class ListOfStore extends React.Component {
         return (
             <table className="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Action</th>
-                        <th>Action</th>
+                    <tr className="row">
+                        <th className="col">Name</th>
+                        <th className="col">Address</th>
+                        <th className="col">Action</th>
+                        <th className="col">Action</th>
                     </tr>
-                    <tr id="LoadingStatus" style={{ color: "red" }}>
-                        <td>Loading....</td>
+                    <tr id="LoadingStatus">
+                        <td className="ui basic loading button" >Loading</td>
                     </tr>
                 </thead>
 
                 <tbody>
                     {this.state.stores.map((store) =>
-                        <tr key={store.id}>
-                            <td>{store.name}</td>
-                            <td>{store.address}</td>
-                            <td><EditStore store={store} /></td>
-                            <td><DeleteStore store={store} /></td>
+                        <tr className="row" key={store.id}>
+                            <td className="col">{store.name}</td>
+                            <td className="col">{store.address}</td>
+                            <td className="col"><EditStore store={store} /></td>
+                            <td className="col"><DeleteStore store={store} /></td>
                         </tr>
                     )}
                 </tbody>

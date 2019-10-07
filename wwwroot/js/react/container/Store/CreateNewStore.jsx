@@ -77,7 +77,7 @@ class CreateNewStore extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-primary" onClick={this.AddNewStore}>New Store</button>
+                <button className="btn btn-primary" onClick={this.AddNewStore}><b>New Store</b></button>
                 <div className="modal fade" id="StoreCreateModal">
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -89,21 +89,21 @@ class CreateNewStore extends React.Component {
                                     <fieldset id="SubmitForm">
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">NAME</label>
+                                                <label className="control-label"><b>NAME</b></label>
                                                 <input name="Name" className="form-control" onChange={this.handleChange} />
                                                 <span className='text-danger'>{errors.Name}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">ADDRESS</label>
+                                                <label className="control-label"><b>ADDRESS</b></label>
                                                 <input name="Address" className="form-control" onChange={this.handleChange} />
                                                 <span className='text-danger'>{errors.Address}</span>
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="create      &radic;" className="btn btn-success" onClick={this.SaveStore} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui teal button" onClick={this.SaveStore}>create &nbsp; &nbsp;<i aria-hidden="true" className="check icon right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>

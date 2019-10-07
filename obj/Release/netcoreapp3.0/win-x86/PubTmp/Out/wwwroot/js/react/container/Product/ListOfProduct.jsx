@@ -24,24 +24,24 @@ class ListOfProduct extends React.Component {
         return (
             <table className="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                        <th>Action</th>
+                    <tr className="row">
+                        <th className="col">Name</th>
+                        <th className="col">Price</th>
+                        <th className="col">Action</th>
+                        <th className="col">Action</th>
                     </tr>
-                    <tr id="LoadingStatus" style={{ color: "red" }}>
-                        <td>Loading....</td>
+                    <tr id="LoadingStatus">
+                        <td className="ui basic loading button" >Loading</td>
                     </tr>
                 </thead>
 
                 <tbody>
                     {this.state.products.map((product) =>
-                        <tr key={product.id}>
-                            <td>{product.name}</td>
-                            <td>${product.price}</td>
-                            <td><EditProduct product={product} /></td>
-                            <td><DeleteProduct product={product} /></td>
+                        <tr className="row" key={product.id}>
+                            <td className="col">{product.name}</td>
+                            <td className="col">${product.price}</td>
+                            <td className="col"><EditProduct product={product} /></td>
+                            <td className="col"><DeleteProduct product={product} /></td>
                         </tr>
                     )}
                 </tbody>

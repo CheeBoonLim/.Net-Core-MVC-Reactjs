@@ -86,7 +86,7 @@ class EditProduct extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-warning" onClick={() => this.EditProduct(product.id)}>EDIT</button>
+                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditProduct(product.id)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -98,21 +98,21 @@ class EditProduct extends React.Component {
                                     <fieldset id="SubmitForm">
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">NAME</label>
+                                                <label className="control-label"><b>NAME</b></label>
                                                 <input name="Name" className="form-control" onChange={this.handleChange} placeholder={product.name} />
                                                 <span className='text-danger'>{errors.Name}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">PRICE</label>
+                                                <label className="control-label"><b>PRICE</b></label>
                                                 <input name="Price" type="number" className="form-control" onChange={this.handleChange} placeholder={product.price} />
                                                 <span className='text-danger'>{errors.Price}</span>
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="edit      &radic;" className="btn btn-success" onClick={this.SaveProduct} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui green button" onClick={this.SaveProduct}>edit &nbsp; &nbsp;<i aria-hidden="true" className="check icon right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>

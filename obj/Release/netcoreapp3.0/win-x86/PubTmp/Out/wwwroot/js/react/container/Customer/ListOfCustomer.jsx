@@ -24,24 +24,24 @@ class ListOfCustomer extends React.Component {
         return (
             <table className="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Action</th>
-                        <th>Action</th>
+                    <tr className="row">
+                        <th className="col">Name</th>
+                        <th className="col">Address</th>
+                        <th className="col">Action</th>
+                        <th className="col">Action</th>
                     </tr>
-                    <tr id="LoadingStatus" style={{ color: "red" }}>
-                        <td>Loading....</td>
+                    <tr id="LoadingStatus">
+                        <td className="ui basic loading button" >Loading</td>
                     </tr>
                 </thead>
                 
                 <tbody>
                     {this.state.customers.map((customer) =>
-                        <tr key={customer.id}>
-                            <td>{customer.name}</td>
-                            <td>{customer.address}</td>
-                            <td><EditCustomer customer={customer} /></td>
-                            <td><DeleteCustomer customer={customer} /></td>
+                        <tr className="row" key={customer.id}>
+                            <td className="col">{customer.name}</td>
+                            <td className="col">{customer.address}</td>
+                            <td className="col"><EditCustomer customer={customer} /></td>
+                            <td className="col"><DeleteCustomer customer={customer} /></td>
                         </tr>
                     )}
                     

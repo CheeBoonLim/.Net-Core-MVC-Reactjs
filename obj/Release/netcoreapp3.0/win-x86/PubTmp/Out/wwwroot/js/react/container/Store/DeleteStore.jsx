@@ -40,7 +40,7 @@ class DeleteStore extends React.Component {
         const modelId = "DeleteStore" + store.id.toString();
         return (
             <div>
-                <button className="btn btn-danger" onClick={() => this.DeleteStore(store)}>DELETE</button>
+                <button className="btn btn-danger" onClick={() => this.DeleteStore(store)}><i aria-hidden="true" className="trash icon"></i><b>DELETE</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -53,8 +53,8 @@ class DeleteStore extends React.Component {
                                 <form id="form">
                                     <fieldset id="SubmitForm">
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="delete      &chi;" className="btn btn-danger" onClick={this.ConfirmDeleteStore} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui red button" onClick={this.ConfirmDeleteStore}>delete &nbsp; &nbsp;<i aria-hidden="true" className="delete icon white right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>

@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { Icon } from "semantic-ui-react";
 
 const validateForm = (errors) => {
     let valid = true;
@@ -83,7 +84,7 @@ class EditCustomer extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-warning" onClick={() => this.EditCustomer(customer.id)}>EDIT</button>
+                <button className="btn btn-warning" style={{ color: "white" }} onClick={() => this.EditCustomer(customer.id)}><i aria-hidden="true" className="edit icon"></i><b>EDIT</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -95,21 +96,21 @@ class EditCustomer extends React.Component {
                                     <fieldset id="SubmitForm">
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">NAME</label>
+                                                <label className="control-label"><b>NAME</b></label>
                                                 <input name="Name" className="form-control" onChange={this.handleChange} placeholder={customer.name} />
                                                 <span className='text-danger'>{errors.Name}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">ADDRESS</label>
+                                                <label className="control-label"><b>ADDRESS</b></label>
                                                 <input name="Address" className="form-control" onChange={this.handleChange} placeholder={customer.address} />
                                                 <span className='text-danger'>{errors.Address}</span>
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="edit      &radic;" className="btn btn-success" onClick={this.SaveCustomer} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui green button" onClick={this.SaveCustomer}>edit &nbsp; &nbsp;<i aria-hidden="true" className="check icon right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>

@@ -135,7 +135,7 @@ class CreateNewSale extends React.Component {
         const { errors } = this.state;
         return (
             <div>
-                <button className="btn btn-primary" onClick={this.AddNewSale}>New Sale</button>
+                <button className="btn btn-primary" onClick={this.AddNewSale}><b>New Sale</b></button>
                 <div className="modal fade" id="SaleCreateModal">
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -147,14 +147,14 @@ class CreateNewSale extends React.Component {
                                     <fieldset id="SubmitForm">
                                         <div className="form-group">
                                             <div className="col-md-5">
-                                                <label className="control-label">DATE SOLD</label>
+                                                <label className="control-label"><b>DATE SOLD</b></label>
                                                 <input name="DateSold" className="form-control" onChange={this.handleChange} placeholder="YYYY-MM-DD" />
                                                 <span className='text-danger'>{errors.DateSold}</span>
                                             </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">CUSTOMER</label>
+                                                <label className="control-label"><b>CUSTOMER</b></label>
                                                 <div>
                                                     <select name="SelectedCustomerId" className="col-md-12" value={this.state.SelectedCustomerId} onChange={this.handleChange} style={{ height: "40px", border: "1px solid lightgrey" }}>
                                                         <option value="0">--Select Customer--</option>
@@ -168,7 +168,7 @@ class CreateNewSale extends React.Component {
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">PRODUCT</label>
+                                                <label className="control-label"><b>PRODUCT</b></label>
                                                 <div>
                                                     <select name="SelectedProductId" className="col-md-12" value={this.state.SelectedProductId} onChange={this.handleChange} style={{ height: "40px", border: "1px solid lightgrey" }}>
                                                         <option value="0">--Select Product--</option>
@@ -182,7 +182,7 @@ class CreateNewSale extends React.Component {
                                         </div>
                                         <div className="form-group">
                                             <div className="col-md-10">
-                                                <label className="control-label">STORE</label>
+                                                <label className="control-label"><b>STORE</b></label>
                                                 <div>
                                                     <select name="SelectedStoreId" className="col-md-12" value={this.state.SelectedStoreId} onChange={this.handleChange} style={{ height: "40px", border: "1px solid lightgrey" }}>
                                                         <option value="0">--Select Store--</option>
@@ -195,8 +195,8 @@ class CreateNewSale extends React.Component {
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="create      &radic;" className="btn btn-success" onClick={this.SaveSale} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui teal button" onClick={this.SaveSale}>create &nbsp; &nbsp;<i aria-hidden="true" className="check icon right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\OnboardingTask\\OnboardingTask.csproj": {}
+    "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\Git\\.Net-Core-MVC-Reactjs\\OnboardingTask.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\OnboardingTask\\OnboardingTask.csproj": {
+    "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\Git\\.Net-Core-MVC-Reactjs\\OnboardingTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\OnboardingTask\\OnboardingTask.csproj",
+        "projectUniqueName": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\Git\\.Net-Core-MVC-Reactjs\\OnboardingTask.csproj",
         "projectName": "OnboardingTask",
-        "projectPath": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\OnboardingTask\\OnboardingTask.csproj",
+        "projectPath": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\Git\\.Net-Core-MVC-Reactjs\\OnboardingTask.csproj",
         "packagesPath": "C:\\Users\\Pue Ling\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\OnboardingTask\\obj\\",
+        "outputPath": "C:\\Users\\Pue Ling\\Desktop\\Industry Connect\\Internship\\Git\\.Net-Core-MVC-Reactjs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

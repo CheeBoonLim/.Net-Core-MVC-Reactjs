@@ -24,28 +24,28 @@ class ListOfSale extends React.Component {
         return (
             <table className="table table-striped">
                 <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Product</th>
-                        <th>Store</th>
-                        <th>Date Sold</th>
-                        <th>Action</th>
-                        <th>Action</th>
+                    <tr className="row">
+                        <th className="col">Customer</th>
+                        <th className="col">Product</th>
+                        <th className="col">Store</th>
+                        <th className="col">Date Sold</th>
+                        <th className="col">Action</th>
+                        <th className="col">Action</th>
                     </tr>
-                    <tr id="LoadingStatus" style={{ color: "red" }}>
-                        <td>Loading....</td>
+                    <tr id="LoadingStatus">
+                        <td className="ui basic loading button" >Loading</td>
                     </tr>
                 </thead>
 
                 <tbody>
                     {this.state.sales.map((sale) =>
-                        <tr key={sale.id}>
-                            <td>{sale.customer.name}</td>
-                            <td>{sale.product.name}</td>
-                            <td>{sale.store.name}</td>
-                            <td>{sale.dateSold}</td>
-                            <td><EditSale sale={sale} /></td>
-                            <td><DeleteSale sale={sale} /></td>
+                        <tr className="row" key={sale.id}>
+                            <td className="col">{sale.customer.name}</td>
+                            <td className="col">{sale.product.name}</td>
+                            <td className="col">{sale.store.name}</td>
+                            <td className="col">{sale.dateSold}</td>
+                            <td className="col"><EditSale sale={sale} /></td>
+                            <td className="col"><DeleteSale sale={sale} /></td>
                         </tr>
                     )}
                 </tbody>

@@ -46,7 +46,7 @@ class DeleteSale extends React.Component {
         const modelId = "DeleteSale" + sale.id.toString();
         return (
             <div>
-                <button className="btn btn-danger" onClick={() => this.DeleteSale(sale)}>DELETE</button>
+                <button className="btn btn-danger" onClick={() => this.DeleteSale(sale)}><i aria-hidden="true" className="trash icon"></i><b>DELETE</b></button>
                 <div className="modal fade" id={modelId}>
                     <div className="modal-dialog">
                         <div className="modal-content">
@@ -58,8 +58,8 @@ class DeleteSale extends React.Component {
                                 <form id="form">
                                     <fieldset id="SubmitForm">
                                         <div className="modal-footer">
-                                            <a className="btn btn-dark" data-dismiss="modal">cancel</a>
-                                            <input type="submit" value="delete      &chi;" className="btn btn-danger" onClick={this.ConfirmDeleteSale} />
+                                            <a className="ui black button" data-dismiss="modal">cancel</a>
+                                            <button className="ui red button" onClick={this.ConfirmDeleteSale}>delete &nbsp; &nbsp;<i aria-hidden="true" className="delete icon white right floated"></i></button>
                                         </div>
                                     </fieldset>
                                 </form>
